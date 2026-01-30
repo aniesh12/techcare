@@ -3,6 +3,8 @@ import { NavLink, Link } from 'react-router-dom';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/index.css';
 
+import imgLogo from "../assets/logo.png"
+
 const Navbar = () => {
   const [click, setClick] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -27,10 +29,15 @@ const Navbar = () => {
     <>
       <nav className={`navbar ${scrolled ? 'active' : ''}`}>
         <div className="navbar-container container">
-          <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-            Techcaresolution
-          </Link>
-          <div className="menu-icon" onClick={handleClick}>
+          <img src={imgLogo} width={90} style={{display:"inline-block"}}  loading='lazy' alt="logo-img"/>
+          <Link
+  to="/"
+  className="navbar-logo hidden md:block"
+  onClick={closeMobileMenu}
+>
+  Techcaresolution
+</Link>
+          <div className="menu-icon"  onClick={handleClick}>
             {click ? <FaTimes /> : <FaBars />}
           </div>
           <ul className={click ? 'nav-menu active' : 'nav-menu'}>
